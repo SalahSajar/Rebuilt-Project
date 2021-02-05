@@ -1,0 +1,12 @@
+$main_color:#555;
+
+@mixin flex_block($ai , $jc){
+    align-items:$ai;
+    justify-content:$jc;
+}
+
+@mixin bg_Settings ($size , $position){
+    background-size:$size;
+    background-position: $position;
+}
+

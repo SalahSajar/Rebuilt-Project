@@ -1,0 +1,790 @@
+@import 'Sass/global';
+@import 'Sass/vars';
+@import 'Sass/responsive';
+
+header{
+    width:100%;
+    height:100vh;
+    margin-bottom:2rem;
+    
+    
+    nav{
+        position:relative;
+        z-index:1000;
+        width:100%;
+        display:flex;
+        background-color:rgb(255, 255, 255);
+
+        @include flex_block(center , space-between);
+
+        .menu_Btn{
+            display:none;
+            cursor: pointer;
+            width:35px;
+            height:30px;
+
+            //              media queries starts Here
+            @include tt{
+                display:block;
+                
+            }
+            //              media queries Ends Here
+
+            span{
+                display:block;
+                height:4px;
+                width:100%;
+                background-color:#000;
+                transform-origin: left center;
+
+                &:nth-child(2){
+                    margin:7px 0;
+                }
+            }
+        }
+
+        
+
+        &.main_pg{
+            padding:25px 3.5rem;
+
+            //              media queries starts Here
+            @include tt{
+                padding:15px 2.5rem;
+            }
+            @include ml{
+                padding:15px 1.5rem;
+            }
+            //              media queries Ends Here
+
+
+
+        }
+
+
+        ul{
+            list-style:none;
+            display:flex;
+
+            //              media queries starts Here
+            @include tt{
+                background:#fff;
+                width:100%;
+                position: absolute;
+                top:0;
+                left:0;
+                z-index:10;
+                padding:5px 0;
+                transform:translateY(130%);
+                visibility: hidden;
+                opacity:0;
+                transition:all .4s ease-in-out;
+
+                @include flex_block(center , space-evenly);
+
+            }
+
+            //              media queries Ends Here
+
+            &.toggleMenu{
+                visibility: visible;
+                opacity:1;
+            }
+
+            li{
+                padding:0 15px;
+                //              media queries starts Here
+                @include ml{
+                    padding: 0 5px;
+                }
+                //              media queries Ends Here
+
+                a{
+                    color:#000;
+                    text-transform: uppercase;
+                    font-weight:700;
+                    padding:5px;
+                    display:inline-block;
+                    text-decoration: none;
+                    transition:color .3s ease;
+
+                    &:hover{
+                        color:#444;
+                    }
+
+                    //              media queries starts Here
+                    @include ml{
+                        font-size:.9rem;
+                    }
+                    //              media queries Ends Here
+                }
+            }
+        }   
+    }
+
+    .res_headerMain_block{
+        position:relative;
+        display: none;
+        width:100%;
+        height:calc(100% - 79px);
+        text-align: center;
+        // background:linear-gradient(0deg, rgba(255,255,255, .5), rgba(255,255,255, .5)), url('/ProjectImgs/mainImg.jpg');
+        background: url('/ProjectImgs/mainImg.jpg') rgba(255,255,255,.5);
+        background-blend-mode: lighten;
+
+
+        @include bg_Settings(cover , center);
+
+        //              media queries starts Here
+        @include ml{
+            display:block;
+        }
+        //              media queries Ends Here
+
+
+        .res_headerMain_blockTypos{
+            padding-top:5.5rem;
+
+            .main_Heading{
+                font-size:2rem;
+            }
+
+            .secondary_text{
+                font-weight:400;
+                padding:40px 0;
+            }
+
+            button{
+                padding:15px 22px;
+                text-transform: uppercase;
+                color:#fff;
+                background-color: $main_color;
+                border:none;
+                font-weight:500;
+                font-size:1rem;
+                letter-spacing: 2px;
+                cursor: pointer;
+            }
+        }
+
+    }
+
+    #main{
+        position:relative;
+        width:100%;
+        height:calc(100% - 79px);
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-gap:35px;
+        grid-row-gap:10px;
+
+        //              media queries starts Here
+        @include tt{
+            grid-gap:10px;
+        }
+
+        @include ml{
+            display:none;
+        }
+        //              media queries Ends Here
+
+
+        &.main_pg{
+            padding:1rem 3.5rem 0 3.5rem;
+
+            //              media queries starts Here
+            @include tt{
+                padding:2rem 2.5rem 0 2.5rem;
+            }
+            //              media queries Ends Here
+
+
+        }
+
+        //              media queries starts Here
+        @include tt{
+            padding:2rem 2.5rem 0 2.5rem;
+        }
+        @include ml{
+            padding:2rem 1.5rem 0 1.5rem;
+        }
+        //              media queries Ends Here
+
+
+        .main_lb{
+            width:100%;
+            height: 100%;
+            grid-row: 1/3;
+            background:url('/ProjectImgs/mainImg.jpg');
+            background-repeat: no-repeat;
+            @include bg_Settings(210%, 0% 85%);
+
+            //              media queries starts Here
+            @include lp{
+                @include bg_Settings(cover, 10% 85%);
+            }
+
+            //              media queries Ends Here
+
+
+        }
+
+        .main_rb__Typos{
+            width:100%;
+
+            button{
+                padding:17px 23px;
+                text-transform: uppercase;
+                color:#fff;
+                background-color: $main_color;
+                border:none;
+                font-weight:600;
+                font-size:1rem;
+                letter-spacing: 2px;
+                cursor: pointer;
+
+            //              media queries starts Here
+                @include lp{
+                    padding:15px 22px;
+                    font-size:0.9rem;
+                }
+    
+                @include tt{
+                    padding:12px 18px;
+                    font-size:0.8rem;
+                }
+            //              media queries Ends Here
+
+
+            }
+        }
+        .main_rbb{
+            grid-row: 2/3;
+            height:100%;
+            width:100%;
+            background:url('/ProjectImgs/mainImg_rb.jpg');
+            background-repeat:no-repeat;
+            @include bg_Settings(cover , 0% 100%);
+        }
+    }
+}
+
+section#fs{
+    width:100%;
+    margin-top:2rem;
+
+    .fs_header{
+        width:100%;
+        display:flex;
+        padding:2rem 0;
+
+        @include flex_block(center , space-between);
+
+        //              media queries starts Here
+        @include ml{
+            flex-direction: column-reverse;
+        }
+        //              media queries Ends Here
+
+        &__rb{
+
+        //              media queries starts Here
+        @include ml{
+            text-align:center;
+        }
+        //              media queries Ends Here
+
+        }
+
+        &__lb{
+            width:30%;
+            display:flex;
+
+            @include flex_block(center , space-between);
+
+            //              media queries starts Here
+
+            @include lp{
+                width:40%;
+            }
+            @include tt{
+                width:45%;
+            }
+
+            @include ml{
+                width:100%;
+                padding-top:15px;
+            }
+
+            //              media queries Ends Here
+
+            &_col{
+                text-align:center;
+
+                span{
+                    font-size:3rem;
+                    font-weight:700;
+                    color:$main_color;
+
+                    @include tt{
+                        font-size:2rem;
+                    }
+                }
+
+                .secondary_text{
+                    padding:15px 0;
+                    color:rgb(91,91,91);
+                    font-size:1.2rem;
+
+            //              media queries starts Here
+
+                    @include tt{
+                        font-size:1rem;
+                    }
+            //              media queries Ends Here
+
+                }
+
+                &:nth-child(1){
+                   text-align: left;
+                }
+                &:nth-child(3){
+                   text-align: right;
+                }
+            }
+        }
+    }
+
+    .fs_main{
+        width:100%;
+        display:flex;
+
+        @include flex_block(center , space-between);
+
+        &_block{
+
+            width:30%;
+
+            &:nth-child(1) .fs_main_block_img{
+                background: url('/ProjectImgs/pexels-dominika-roseclay-1139785.jpg');
+                @include bg_Settings(cover , center)
+            }
+            &:nth-child(2) .fs_main_block_img{
+                background: url('/ProjectImgs/pexels-dominika-roseclay-905198.jpg');
+                @include bg_Settings(cover , bottom)
+            }
+            &:nth-child(3) .fs_main_block_img{
+                background: url('/ProjectImgs/pexels-dominika-roseclay-1139784.jpg');
+                @include bg_Settings(cover , center)
+            }
+
+            &_img{
+                width:100%;
+                height:400px;
+                
+            //              media queries starts Here
+                @include lp{
+                    height:350px;
+                }
+
+                @include ml{
+                    height:200px;
+                }
+            //              media queries Ends Here
+            }
+
+            &_typos{
+                padding-top:35px;
+                
+                //              media queries starts Here
+                @include tt{
+                    padding-top:15px;
+                }
+                //              media queries Ends Here
+                h4{
+                    color:#444;
+                    text-transform: uppercase;
+                    font-size:1.6rem;
+
+                    //              media queries starts Here
+                    @include tt{
+                        font-size:1.3rem;
+                    }
+
+                    @include ml{
+                        font-size:.8rem;
+                    }
+                    //              media queries Ends Here
+                }
+
+                .secondary_text{
+                    padding:10px 0;
+
+                    //              media queries starts Here
+                    @include tt{
+                        padding:5px 0;
+                    }
+
+                    @include ml{
+                        font-size:.5rem;
+                    }
+                    //              media queries Ends Here
+                }
+            }
+            
+        }
+    }
+}
+
+section#ss{
+    width:100%;
+    margin:5rem 0;
+
+    .ss_main{
+        width:100%;
+        display:grid;
+        grid-template-columns: repeat(2 ,1fr);
+
+        //              media queries starts Here
+        @include tt{
+            grid-template-columns: .40fr .60fr;
+        }
+
+        @include ml{
+            grid-template-columns: 1fr;
+        }
+        //              media queries Ends Here
+
+        &_lb{
+
+            //              media queries starts Here
+            @include ml{
+                text-align:center;
+            }
+            //              media queries Ends Here
+        }
+
+        &_rb{
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-gap:50px;
+
+
+            //              media queries starts Here
+            @include lp{
+                grid-gap:25px;
+            }
+
+            @include ml{
+                margin-top:1.9rem;
+                grid-gap:5px;
+            }
+            //              media queries Ends Here
+
+
+            h3{
+                color:#444;
+                font-size:1.5rem;
+                font-weight:700;
+                //              media queries starts Here
+                @include lp{
+                    font-size:1.1rem;
+                }
+
+                }
+                
+                //              media queries Ends Here
+
+            .secondary_text{
+                padding:20px 0 0 0;
+                font-size:1.1rem;
+                color:rgba(0,0,0,.5);
+
+                //              media queries starts Here
+                @include tt{
+                    font-size:.9rem;
+                }
+                //              media queries Ends Here
+            }
+        }
+    }
+}
+
+
+section#ts{
+    margin-bottom:5rem;
+
+    .ts_header{
+        width:100%;
+        margin-bottom:2.5rem;
+        display:flex;
+
+
+        @include flex_block(center , space-between);
+
+        //              media queries starts Here
+
+        @include ml{
+            flex-direction: column-reverse;
+        }
+
+        //              media queries Ends Here
+
+
+        &>div{
+            width:50%;
+
+            //              media queries starts Here
+
+            @include ml{
+                width:100%;
+            }
+            //              media queries Ends Here
+
+
+        }
+
+        p{
+            font-size:1.3rem;
+            line-height:1.7;
+            color:#222;
+            font-weight:500;
+
+            //              media queries starts Here
+            @include lp{
+                font-size:1.1rem;
+                line-height:1.4;
+            }
+
+            @include tt{
+                font-size:.9rem;
+                line-height:1.2;
+            }
+
+            @include ml{
+                padding-top:1.7rem;
+                text-align:center;
+
+            }
+
+            //              media queries Ends Here
+        }
+
+        h2{
+
+            text-align:right;
+
+            //              media queries starts Here
+            @include ml{
+                text-align:center;
+            }
+            //              media queries Ends Here
+
+        }
+    }
+
+    .ts_img{
+        width:100%;
+        height:650px;
+        background:url('/ProjectImgs/teamImg.jpg');
+
+        @include bg_Settings(cover , center);
+
+        //              media queries starts Here
+        @include tt{
+            height:350px;
+        }
+
+        @include ml{
+            height:220px;
+        }
+        //              media queries Ends Here
+    }
+}
+
+section#cs{
+    margin:0 3.5rem;
+    padding:70px;
+    display:flex;
+    background-color:$main_color;
+
+    @include flex_block(center , space-between);
+
+    //              media queries starts Here
+    @include tt{
+        margin:0 2.5rem;
+        padding:70px 20px;
+    }
+    @include ml{
+        margin:0 1.5rem;
+        padding:20px;
+        flex-direction:column;
+    }
+    
+    //              media queries Ends Here
+
+    .cs_Typos{
+        width:70%;
+
+        //              media queries starts Here
+        @include ml{
+            width:100%;
+            text-align:center;
+        }
+        //              media queries Ends Here
+
+        
+        .main_Heading{
+            color:#fff;
+
+            //              media queries starts Here
+            @include ml{
+                font-size:2rem;
+            }
+            //              media queries Ends Here
+        }
+    
+        p{
+            font-size:1.1rem;
+            color:#eee;
+            line-height:1.7;
+
+            //              media queries starts Here
+            @include tt{
+                font-size:.9rem;
+                line-height:1.3;
+            }
+
+            @include ml{
+                font-size:.8rem;
+                line-height:1.2;
+            }
+            //              media queries Ends Here
+            &.secondary_text{
+                padding:25px 0 0 0;
+
+                //              media queries starts Here
+                @include tt{
+                    padding:15px 0 0 0;
+                    font-weight:500;
+                    
+                }
+                @include ml{
+                    font-size:.8rem;
+                    line-height:1.2;
+
+                    padding:40px 0;
+                }
+                //              media queries Ends Here
+            }
+        }
+    }
+
+    .cta_btns {
+        width:200px;
+
+        //              media queries starts He
+        @include ml{
+            width:100%;
+            display:flex;
+            @include flex_block(center , space-around);
+        }
+        //              media queries Ends He
+
+        button{
+            width:170px;
+            display:block;
+            margin:0 auto;
+            padding:20px 0;
+            border:none;
+            font-size:1.1rem;
+            font-weight:700;
+            letter-spacing:2.5px;
+            cursor: pointer;
+
+            //              media queries starts Here
+            @include tt{
+                width:140px;
+                padding:13px 0;
+                font-size:1rem;
+                letter-spacing:1.5px;
+            }
+
+            @include ml{
+                width:120px;
+                padding:10px 0;
+                font-size:.9rem;
+                letter-spacing:1.3px;
+                margin:0;
+            }
+
+            //              media queries Ends Here
+
+            &:nth-child(1){
+                background:#fff;
+                color:$main_color;
+
+            }
+            &:nth-child(2){
+                margin-top:15px;
+                background:$main_color;
+                color:#fff;
+                border:2px solid #fff;
+
+
+                //              media queries starts Here
+                @include ml{
+                    margin:0;
+                }
+                //              media queries Ends Here
+            }
+        }
+    }
+}
+
+
+footer{
+    padding:20px 3.5rem;
+    display:flex;
+
+    @include flex_block(center , space-between);
+
+    //              media queries starts Here
+    @include tt{
+        padding:15px 2.5rem;
+    }
+
+    @include ml{
+        flex-direction:column;
+        padding:15px 1.5rem;
+    }
+    //              media queries Ends Here
+
+    h1{
+
+        //              media queries starts Here
+        @include tt{
+            font-size:1.5rem;
+        }
+        @include ml{
+            margin-bottom:1.1rem;
+        }
+        //              media queries Ends Here
+
+    }
+
+    span{
+        font-size:1.2rem;
+        font-weight: 500;
+
+        //              media queries starts Here
+        @include tt{
+            font-size:.9rem;
+            font-weight: 400;
+        }
+        //              media queries Ends Here
+    }
+}
+
